@@ -10,69 +10,51 @@
         href="https://cdn.jsdelivr.net/npm/flickity@2/dist/flickity.min.css" />
 
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-      color: #f5f5f5;
-      height: 100%;
-    }
+   html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #f5f5f5;
+  height: 100%;
+}
 
-    /* Wrapper is full viewport width */
-    .gallery-wrapper {
-      width: 100vw;
-      height: 100vh; /* full-screen; iframe height controls visible area */
-      margin: 0;
-      padding: 0;
-    }
+/* full viewport width, but let height be driven by the image */
+.gallery-wrapper {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
 
-    /* Flickity container */
-    .main-carousel {
-      width: 100vw;
-      height: 100vh;
-    }
+/* Flickity container */
+.main-carousel {
+  width: 100vw;
+}
 
-    /* Each slide = full viewport */
-    .carousel-cell {
-      width: 100vw;
-      height: 100vh;
-      margin-right: 0;
-      background: #000;
-      overflow: hidden;
-      position: relative;
-    }
+/* each slide = full width, flex‑centers the image */
+.carousel-cell {
+  width: 100vw;
+  margin-right: 0;
+  background: #000;
+  overflow: hidden;
 
-    /* Image fills slide, cropped as needed */
-    .carousel-cell img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;  /* change to 'contain' if you don’t want cropping */
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    /* Optional: captions, bottom-left */
-    .caption {
-      position: absolute;
-      left: 16px;
-      bottom: 16px;
-      padding: 6px 10px;
-      font-size: 0.8rem;
-      color: #eee;
-      background: rgba(0, 0, 0, 0.45);
-      border-radius: 4px;
-    }
+  /* optional: cap height so you don't get monster vertical frames */
+  min-height: 50vh;
+  max-height: 100vh;
+}
 
-    /* Optional: tweak dots position */
-    .flickity-page-dots {
-      bottom: 12px;
-    }
-
-    /* Optional: larger arrows on desktop */
-    @media (min-width: 768px) {
-      .flickity-prev-next-button {
-        width: 44px;
-        height: 44px;
-      }
+/* image fully fits inside the cell */
+.carousel-cell img {
+  display: block;
+  max-width: 100%;
+  max-height: 100vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;  /* no cropping */
+}
     }
   </style>
 </head>
